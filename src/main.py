@@ -146,11 +146,8 @@ def pep(session):
                 f'Ожидаемые статусы: {pep_list_status}'
             )
         results = [('Статус', 'Количество')]
-        total = 0
-        for key, value in counter.items():
-            results.append((key, value))
-            total += value
-        results.append(('Total:', total))
+        results.extend(counter.items())
+        results.append(('Total:', sum(counter.values())))
 
     return results
 
